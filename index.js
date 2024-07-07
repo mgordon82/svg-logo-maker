@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const makeSVG = require('./utils/makeSVG');
 
 const prompts = [
   {
@@ -32,9 +33,9 @@ const prompts = [
 ];
 
 function saveSVG(file, promptData) {
-  fs.writeFile(file, makeSVG(data), (error) => {
+  fs.writeFile(file, makeSVG(promptData), (error) => {
     if (error) {
-      console.error('There was an error making the svg', err);
+      console.error('There was an error making the svg', error);
     } else {
       console.log('Successfully created the SVG file!');
     }
@@ -42,9 +43,15 @@ function saveSVG(file, promptData) {
 }
 
 function init() {
-  inquirer
-    .prompt(questions)
-    .then((resp) => saveSVG(`./dist/${resp.shape}.svg`));
+  inquirer.prompt(prompts).then((resp) => {
+    console.log('resp', resp.characters.length);
+    if (resp.characters.length <= 3) {
+      saveSVG(`./dist/${resp.shape}.svg`, resp);
+    } else {
+      console.log('Must be up to 3 characters');
+      init();
+    }
+  });
 }
 
 init();
