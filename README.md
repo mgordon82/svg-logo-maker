@@ -15,3 +15,7 @@ With this project and in the terminal, run `npm install` and then `node index` t
 Test will run 3 tests. Each test will pass by making a Triangle, a Square, and a Circle set of svgs.
 
 To run the test, `npm run test` will execute the tests.
+
+## Location of Code
+
+- [GitHub Repo](https://github.com/mgordon82/svg-logo-maker)
