@@ -38,6 +38,7 @@ To run the test, `npm run test` will execute the tests.
 ## Location of Code
 
 - [GitHub Repo](https://github.com/mgordon82/svg-logo-maker)
+- [Demo Video](https://mgordon82.github.io/svg-logo-maker/images/demo-recording.mov)
 
 ## Screenshots
 
